@@ -42,10 +42,29 @@ button.submit, div.quote h5, div.quote h6, h2{
     font-size: 33px;
 }
 
+div.quote h5, div.quote h6 {
+    text-shadow: 0.5px 0.5px 0.5px rgb(118, 69, 59);
+}
+
 div.quote h6 {
     font-size: 30px;
     text-align: right;
 }
+
+div.quote h5 {
+    padding: 13px;
+    height: 260px; 
+    width: 580px;
+    border: 3px solid rgb(118, 69, 59);
+    border-radius: 45px;
+    box-shadow: 2px 2px 2px rgba(118, 69, 59, 230) -2px -2px -2px rgba(118, 69, 59, 230)
+    
+}
+
+div.quote h6 {
+    margin-left: auto;
+}
+
 
 button.submit {
     height: 73px;
@@ -59,16 +78,10 @@ button.submit {
     letter-spacing: 1px;
 }
 
-div.quote h5 {
-    padding: 13px;
-    height: 260px; 
-    width: 580px;
-    border: 3px solid rgb(118, 69, 59);
-    border-radius: 45px;
-}
-
-div.quote h6 {
-    margin-left: auto;
+button.submit:hover {
+    background-color: rgb(100, 58, 50);
+    cursor: pointer;
+    box-shadow: 0.5px 0.5px 3px rgb(48, 48, 49);
 }
 
 button.addToClipboard {
@@ -78,5 +91,10 @@ button.addToClipboard {
     border: 3px solid rgb(118, 69, 59);
     border-radius: 20px;
     justify-self: center;
+}
 
+button.addToClipboard:hover {
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+    box-shadow: 0.5px 0.5px 3px rgb(48, 48, 49);
 }
