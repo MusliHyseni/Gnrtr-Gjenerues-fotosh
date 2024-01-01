@@ -3,40 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gnrtr - Gjenerues fotosh</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Quotify</title>
+    <link rel="stylesheet" href="assets\css\style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto+Slab:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Gnrtr</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-            </ul>
-          </div>
+
+        <h1 class="title">Quotes from your favorite personalities!</h1>
+        <div class="quote">
+          <h5 class="quoteHolder">
+            <h6 class="authorHolder"></h6>
+          </h5>
+          <button class="addToClipboard">📎 Copy to clipboard</button>
+          <button class="submit">Generate random quote</button>
         </div>
-      </nav>
-
-      <div class="container"></div>
-
-    
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-      <script type="module">
-        const apiKey = '';
+      <script>
         const apiURL = 'https://api.quotable.io';
+        const button = document.querySelector(".submit")
+        const clipButton = document.querySelector(".addToClipboard")
+        const quoteHolder = document.querySelector(".quoteHolder");
+        const authorHolder = document.querySelector(".authorHolder");
+
+        function fetchRandomQuote(quoteHolderElement, authorHolderElement) {
+          const randomQuoteURL = 'https://api.quotable.io/random';
+          const options = {method: 'GET', headers: {Accept: 'application/json'}};
+          fetch(randomQuoteURL)
+          .then(response => response.json())
+          .then(quote => {
+            quoteHolderElement.innerText = `"${quote.content}"`;
+            authorHolderElement.innerText = `-${quote.author}`;
+            quoteHolderElement.style.fontStyle = "italic";
+            authorHolderElement.style.fontStyle = "italic";
+          })
+          .catch(error => {alert("Encountered error while displaying quote: ", error)});
+        }
+
+        function addToClipboard(text) {
+          navigator.clipboard.writeText(text.value);
+        }
+
+        
+        button.addEventListener("click", event => {
+          fetchRandomQuote(quoteHolder, authorHolder);
+        })
+
+        clipButton.addEventListener("click", event => {
+          addToClipboard(document.querySelector(".quoteHolder").innerHTML);
+        })
 
       </script>
 </body>
