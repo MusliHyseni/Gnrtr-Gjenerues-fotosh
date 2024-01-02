@@ -16,6 +16,7 @@ body {
 h1 {
     padding-top: 25px;
     font-size: 40px;
+    text-shadow: 1px 1px 60px rgb(118, 69, 59);
 }
 
 
@@ -33,7 +34,7 @@ div.quote {
     margin: auto;
 }
 
-button.submit, div.quote h5, div.quote h6, h2{
+button.submit, div.quote textarea, div.quote h6, h2{
     width: 80%;
     margin: 0px auto;
     border-radius: 12px;
@@ -42,7 +43,7 @@ button.submit, div.quote h5, div.quote h6, h2{
     font-size: 33px;
 }
 
-div.quote h5, div.quote h6 {
+div.quote textarea, div.quote h6 {
     text-shadow: 0.5px 0.5px 0.5px rgb(118, 69, 59);
 }
 
@@ -51,10 +52,11 @@ div.quote h6 {
     text-align: right;
 }
 
-div.quote h5 {
+div.quote textarea {
     padding: 13px;
     height: 260px; 
     width: 580px;
+    font-family: 'Montserrat', sans-serif;
     border: 3px solid rgb(118, 69, 59);
     border-radius: 45px;
     box-shadow: 2px 2px 2px rgba(118, 69, 59, 230) -2px -2px -2px rgba(118, 69, 59, 230)
