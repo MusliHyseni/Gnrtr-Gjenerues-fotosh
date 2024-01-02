@@ -23,12 +23,12 @@ h1 {
 div.quote {
     display: grid;
     width: 700px;
-    height: 550px;
+    height: 520px;
     margin: 0px;
     border-radius: 45px;
     border: 5px solid rgb(118, 69, 59);
     background-color: white;
-    box-shadow: 1px 1px 7px rgb(48, 48, 49);
+    box-shadow: 1px 1px 18px rgb(118, 69, 59);
     justify-content: center;
     align-items: center;
     margin: auto;
@@ -86,12 +86,19 @@ button.submit:hover {
     box-shadow: 0.5px 0.5px 3px rgb(48, 48, 49);
 }
 
+.buttonHolder {
+    width: 535px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: left;
+}
+
 button.addToClipboard {
     font-size: 25px;
-    width: 544px;
-    height: 58px;
+    width: 54px;
+    height: 54px;
     border: 3px solid rgb(118, 69, 59);
-    border-radius: 20px;
+    border-radius: 10px;
     justify-self: center;
 }
 
