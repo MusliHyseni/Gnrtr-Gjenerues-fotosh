@@ -19,7 +19,7 @@
           <h6 class="authorHolder"></h6>
           <div class="buttonHolder">
             <button class="addToClipboard">📎</button>
-            <button class="searchPopUp">🔎</button>
+            <button class="searchPopUp" href="searchPage.html">🔎</button>
           </div>
           <button class="submit">Generate random quote</button>
         </div>
@@ -50,10 +50,11 @@
           })
           .catch(error => {alert("Encountered error while displaying quote: ", error)});
         }
-        
         button.addEventListener("click", event => {
           fetchRandomQuote(quoteHolder, authorHolder);
         })
+
+
 
         // Used for copying the generated quote, to the keyboard
         function copy() {
@@ -63,33 +64,51 @@
         }
         clipButton.addEventListener("click", copy);
 
-        // Adding the search author functionality
+
+
         function fetchAuthorData() {
+          //Fetch the data from the API
           const url = 'https://api.quotable.io/search/authors';
           const options = {method: 'GET', headers: {Accept: 'application/json'}};
 
           fetch(url, options) 
           .then(response => response.json())
           .then(data => {
-
+            const authorID = data.results[0].id;
+            const authorName = data.results[0].name;
+            const authorDescription = data.results[0].description;
+            const authorBio = data.results[0].bio;
+            const authorLink = data.results[0].link;
+            const authorQuoteCount = data.results[0].quoteCount;
           });
-          }
-
-          function createPopUp() {
 
           }
-
-          popUpButton.addEventListener("input", createPopUp);
-
+            
+            //`<h1 class="authorName">${authorName}</h1>
+                                     // <h2 class=authorDescription>${authorDescription}</h2>`; // Add remaining page code
           
-          function createAuthorPage() {     // Author name variable goes below ||
-            const authorPage = document.implementation.createHTMLDocument(`"$"{author.name} personal`);
-            authorPage.innerHTML =  `<h1 class="authorName">"$"{author.name}</h1>
-                                      <h2 class=authorDescription>"$"{author.description}</h2>`; // Add remaining page code
-          }
           // Creates a webpage which contains the personal data and some quotes of a given author
         
         //<input type="text" class="searchAuthors" placeholder=" 🔎 Search personalities">
+
+        /* 
+        [{
+            "count": 20,
+            "totalCount": 193,
+            "page": 1,
+            "totalPages": 10,
+            "results": [
+              {
+                "_id": "xEVEeQ7m4KQT",
+                "slug": "ralph-waldo-emerson",
+                "name": "Ralph Waldo Emerson",
+                "link": "https://en.wikipedia.org/wiki/Ralph_Waldo_Emerson",
+                "bio": "Ralph Waldo Emerson (May 25, 1803 – April 27, 1882) was an American essayist, lecturer, philosopher, and poet who led the transcendentalist movement of the mid-19th century. He was seen as a champion of individualism and a prescient critic of the countervailing pressures of society, and he disseminated his thoughts through dozens of published essays and more than 1,500 public lectures across the United States.",
+                "description": "American philosopher",
+                "quoteCount": 54
+              }
+            ]
+}*/
         
       
       </script>
