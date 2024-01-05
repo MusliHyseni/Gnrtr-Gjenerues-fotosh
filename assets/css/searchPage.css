@@ -1,0 +1,39 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+input {
+    border: 3px solid rgb(118, 69, 59);
+    border-radius: 25px;
+    height: 50px;
+    width: 380px;
+    margin-top: 14px;
+    padding: 27px;
+}
+
+input::placeholder {
+   font-size: 20px;
+   padding-left: 8px;
+
+}
+
+button {
+    width: 50px;
+    height: 45px;
+    border: 3px solid rgb(118, 69, 59);
+    border-radius: 14px;
+}
